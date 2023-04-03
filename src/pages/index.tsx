@@ -76,16 +76,25 @@ const HomePage: NextPage<HomePageProps> = ({ playlistItems }) => {
         </div>
       </div>
       {isVideoShown ? (
-        <div className="flex flex-1 flex-col gap-8">
-          <span className="text-center italic text-gray-500">
+        <div
+          className={`relative flex flex-col gap-8 sm:min-w-full md:min-w-[35%] lg:min-w-[40%]`}
+        >
+          <Link
+            href={`https://www.youtube.com/watch?v=${playlistItems[26].snippet.resourceId.videoId}`}
+            className="mx-auto w-fit italic text-gray-500 transition-colors duration-300 hover:text-red-primary/75"
+            target="_blank"
+          >
             Check out my latest mix
-          </span>
-          {playlistItems.slice(26, 27).map((item) => (
-            <YoutubePlayer
-              key={item.snippet.resourceId.videoId}
-              videoId={item.snippet.resourceId.videoId}
-            />
-          ))}
+          </Link>
+          <div className={`relative aspect-video sm:min-w-full md:min-w-[40%]`}>
+            {playlistItems.slice(26, 27).map((item) => (
+              <YoutubePlayer
+                key={item.snippet.resourceId.videoId}
+                videoId={item.snippet.resourceId.videoId}
+                thumbnailUrl={item.snippet.thumbnails.high.url}
+              />
+            ))}
+          </div>
         </div>
       ) : null}
     </>
@@ -95,5 +104,5 @@ const HomePage: NextPage<HomePageProps> = ({ playlistItems }) => {
 export default withPageWrapper(
   HomePage,
   "home",
-  "sm:gap-8 select-none md:flex-row"
+  "sm:gap-8 select-none flex-col-reverse md:flex-row"
 );
