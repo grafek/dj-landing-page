@@ -9,7 +9,7 @@ A website to showcase my DJ mixes and to get bookings for parties. I'm a mostly 
 - [ ] obtaining messages from the form (sendgrid/emailjs)
 - [ ] some animations (framer?)
 - [ ] add social media links and playlist ID to my mixes (mock data as of now, 2nd Apr 2023)
-- [ ] add lazy loading to youtube iframe (heavy bundle)
+- [x] add lazy loading to youtube iframe (heavy bundle)
 
 
 
