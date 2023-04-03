@@ -111,14 +111,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </ul>
         </main>
       </div>
-      <footer className="select-none bg-black/70 p-6 text-white/60 shadow-lg shadow-black/70">
-        <p className="text-center font-semibold">
-          {new Date().getFullYear()}© DJ Graph{" "}
-        </p>
-        <ul
-          className="flex items-center justify-center gap-4 pt-4 md:gap-6"
-          role="list"
-        >
+      <footer className="flex select-none flex-col items-center gap-4 bg-black/70 p-4 text-white/60 shadow-lg shadow-black/70">
+        <ul className="flex gap-4 pt-4 md:gap-6" role="list">
           {SOCIALMEDIA_ITEMS.map((item, i) => (
             <li
               key={item.href + i}
@@ -130,6 +124,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </li>
           ))}
         </ul>
+        <p className="text-center font-semibold">
+          {new Date().getFullYear()}© DJ Graph
+        </p>
       </footer>
     </>
   );
