@@ -19,3 +19,5 @@ export const SOCIALMEDIA_ITEMS = [
     title: "facebook-link",
   },
 ];
+
+export const NOTIFICATION_MS_TIME = 4000;
