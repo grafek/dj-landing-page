@@ -5,6 +5,7 @@ import { debounce } from "@/utils/helpers";
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { type YoutubePlaylistItem } from "../../types";
 
 type HomePageProps = {
   playlistItems: YoutubePlaylistItem[];

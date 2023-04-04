@@ -1,3 +1,5 @@
+import { YoutubePlaylistItem } from "../../types";
+
 const YOUTUBE_API_LINK = "https://www.googleapis.com/youtube/v3/playlistItems";
 const PLAYLIST_ID = "PL9FAglk4uUH3z6V5NKczLiTPHCdau28C0";
 
