@@ -1,4 +1,4 @@
-interface YoutubePlaylistItem {
+type YoutubePlaylistItem = {
   kind: "youtube#playlistItem";
   id: string;
   snippet: {
@@ -32,4 +32,16 @@ interface YoutubePlaylistItem {
     };
     position: 9;
   };
-}
+};
+
+export type ContactFormInput = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export type Notification = {
+  isShown: boolean;
+  isSuccessful?: boolean;
+  message?: string;
+};
