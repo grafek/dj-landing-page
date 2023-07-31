@@ -1,6 +1,7 @@
+"use client";
 import Input from "@/components/Input";
 import TextArea from "@/components/TextArea";
-import withPageWrapper from "@/hoc/PageWrap";
+// import withPageWrapper from "@/hoc/PageWrap";
 import { type NextPage } from "next";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import {
@@ -127,4 +128,5 @@ const ContactPage: NextPage = () => {
   );
 };
 
-export default withPageWrapper(ContactPage, "contact");
+export default ContactPage;
+// export default withPageWrapper(ContactPage, "contact");

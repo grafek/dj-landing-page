@@ -30,5 +30,5 @@ A website to showcase my DJ mixes and to get bookings for parties. I'm a mostly 
 **Code Formatting** - [Prettier](https://prettier.io/)  
 **Deployment** - [Vercel](https://vercel.com/)  
 **Linting** - [ESLint](https://eslint.org)  
- 
-https://dj-graph.vercel.app/
+
+https://jackindahaus.vercel.app/
