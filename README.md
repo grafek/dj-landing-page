@@ -14,8 +14,6 @@ A website to showcase my DJ mixes and to get bookings for parties. I'm a mostly 
 
 
 ## 🔥 Features
- (It's just a landing page, so there aren't many features :D)
-
 
 - [x] youtube iframe api calls w/ react-youtube
 - [x] responsive
@@ -31,4 +29,4 @@ A website to showcase my DJ mixes and to get bookings for parties. I'm a mostly 
 **Deployment** - [Vercel](https://vercel.com/)  
 **Linting** - [ESLint](https://eslint.org)  
 
-https://jackindahaus.vercel.app/
+[https://jackdahaus.vercel.app/](https://jackdahaus.vercel.app/)
