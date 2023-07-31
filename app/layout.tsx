@@ -1,5 +1,4 @@
 "use client";
-import { Metadata } from "next";
 import { debounce } from "@/utils/helpers";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -22,11 +21,6 @@ const NAV_ITEMS = [
     href: "/contact",
   },
 ];
-
-export const metadata: Metadata = {
-  title: "JACKDAHAUS",
-  description: "Your next beach party DJ - check out my website for more info",
-};
 
 export default function RootLayout({
   children,

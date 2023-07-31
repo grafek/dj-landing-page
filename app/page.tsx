@@ -1,6 +1,12 @@
 import YoutubePlayer from "@/components/YotubePlayer";
 import getVideos from "@/lib/getVideos";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "JACKDAHAUS",
+  description: "Your next beach party DJ - check out my website for more info",
+};
 
 const HomePage = async () => {
   const playlistItems = await getVideos();
