@@ -1,16 +1,22 @@
-import { FacebookIcon, InstagramIcon, YoutubeIcon } from "@/components/icons";
+import { FacebookIcon, InstagramIcon, YoutubeIcon,SoundcloudIcon } from "@/components/icons";
 
 // add appropriate links to my socials
+// yet to add facebook and tiktok
 
 export const SOCIALMEDIA_ITEMS = [
   {
     icon: YoutubeIcon,
-    href: "https://www.youtube.com/",
+    href: "https://youtube.com/@jackdahaus",
     title: "youtube-link",
   },
   {
+    icon: SoundcloudIcon,
+    href: "https://soundcloud.com/jackdahaus",
+    title: "soundcloud-link",
+  },
+  {
     icon: InstagramIcon,
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/jackdahaus/",
     title: "instagram-link",
   },
   {

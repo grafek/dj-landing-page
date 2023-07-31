@@ -1,5 +1,8 @@
+"use client";
+
+import { debounce } from "@/utils/helpers";
 import Image from "next/image";
-import { lazy, useState, useTransition } from "react";
+import { lazy, useEffect, useState, useTransition } from "react";
 import { type YouTubeEvent, type YouTubeProps } from "react-youtube";
 
 type YoutubePlayerProps = {
@@ -21,20 +24,45 @@ const YoutubePlayer: React.FC<YoutubePlayerProps> = ({
   const [, startTransition] = useTransition();
   const [showVideo, setShowVideo] = useState(false);
 
+  const [isVideoShown, setIsVideoShown] = useState(false);
+
+  const handleResize = () => {
+    if (window.innerWidth > 640) {
+      setIsVideoShown(true);
+    } else {
+      setIsVideoShown(false);
+    }
+    return;
+  };
+
+  const debouncedHandleResize = debounce(handleResize, 200);
+
+  useEffect(() => {
+    window.addEventListener("resize", debouncedHandleResize);
+
+    return () => {
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
+  }, [debouncedHandleResize]);
+
+  useEffect(() => {
+    handleResize();
+  }, []);
+
   const _onReady = (event: YouTubeEvent<any>) => {
     event.target.playVideo();
   };
 
   return (
     <>
-      {!showVideo ? (
+      {!showVideo || !isVideoShown ? (
         <button
           onClick={() => {
             startTransition(() => {
               setShowVideo(true);
             });
           }}
-          className=" h-full w-full cursor-pointer border-0 bg-transparent"
+          className="h-full w-full cursor-pointer border-0 bg-transparent"
         >
           <div className={"absolute inset-0 aspect-video h-full w-full"}>
             <Image
@@ -53,7 +81,7 @@ const YoutubePlayer: React.FC<YoutubePlayerProps> = ({
               width={"60"}
               height={"40"}
               className={
-                "absolute left-[calc(50%-30px)] top-[calc(50%-21px)] h-10 w-14"
+                "absolute left-[calc(50%-40px)] top-[calc(50%-21px)] h-10 w-14"
               }
             />
           </div>
@@ -63,7 +91,7 @@ const YoutubePlayer: React.FC<YoutubePlayerProps> = ({
           videoId={videoId}
           opts={opts}
           onReady={_onReady}
-          iframeClassName="z-50 aspect-video rounded-lg w-full"
+          iframeClassName="z-50 aspect-video rounded-lg w-full ml-auto"
         />
       )}
     </>
