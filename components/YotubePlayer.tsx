@@ -24,38 +24,13 @@ const YoutubePlayer: React.FC<YoutubePlayerProps> = ({
   const [, startTransition] = useTransition();
   const [showVideo, setShowVideo] = useState(false);
 
-  const [isVideoShown, setIsVideoShown] = useState(false);
-
-  const handleResize = () => {
-    if (window.innerWidth > 640) {
-      setIsVideoShown(true);
-    } else {
-      setIsVideoShown(false);
-    }
-    return;
-  };
-
-  const debouncedHandleResize = debounce(handleResize, 200);
-
-  useEffect(() => {
-    window.addEventListener("resize", debouncedHandleResize);
-
-    return () => {
-      window.removeEventListener("resize", debouncedHandleResize);
-    };
-  }, [debouncedHandleResize]);
-
-  useEffect(() => {
-    handleResize();
-  }, []);
-
   const _onReady = (event: YouTubeEvent<any>) => {
     event.target.playVideo();
   };
 
   return (
     <>
-      {!showVideo || !isVideoShown ? (
+      {!showVideo ? (
         <button
           onClick={() => {
             startTransition(() => {
@@ -81,7 +56,7 @@ const YoutubePlayer: React.FC<YoutubePlayerProps> = ({
               width={"60"}
               height={"40"}
               className={
-                "absolute left-[calc(50%-40px)] top-[calc(50%-21px)] h-10 w-14"
+                "absolute md:left-[calc(50%-40px)] left-[calc(50%-30px)] top-[calc(50%-21px)] h-10 w-14"
               }
             />
           </div>
