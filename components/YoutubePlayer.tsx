@@ -1,8 +1,7 @@
 "use client";
 
-import { debounce } from "@/utils/helpers";
 import Image from "next/image";
-import { lazy, useEffect, useState, useTransition } from "react";
+import { lazy, useState, useTransition } from "react";
 import { type YouTubeEvent, type YouTubeProps } from "react-youtube";
 
 type YoutubePlayerProps = {
@@ -45,7 +44,7 @@ const YoutubePlayer: React.FC<YoutubePlayerProps> = ({
               src={thumbnailUrl}
               fill
               className={
-                "inset-0 m-0 h-full w-full cursor-pointer border-0 bg-transparent p-0"
+                "inset-0 m-0 h-full w-full cursor-pointer rounded-md border-0 bg-transparent p-0"
               }
               loading="lazy"
             />
@@ -56,7 +55,7 @@ const YoutubePlayer: React.FC<YoutubePlayerProps> = ({
               width={"60"}
               height={"40"}
               className={
-                "absolute md:left-[calc(50%-40px)] left-[calc(50%-30px)] top-[calc(50%-21px)] h-10 w-14"
+                "absolute left-[calc(50%-30px)] top-[calc(50%-21px)] h-10 w-14 md:left-[calc(50%-25px)]"
               }
             />
           </div>

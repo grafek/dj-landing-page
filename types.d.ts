@@ -40,7 +40,7 @@ export type ContactFormInput = {
   message: string;
 };
 
-export type Notification = {
+export type NotificationType = {
   isShown: boolean;
   isSuccessful?: boolean;
   message?: string;

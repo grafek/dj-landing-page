@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 import {
@@ -61,7 +61,7 @@ const TextArea = <T extends FieldValues>({
           }
         }}
         aria-invalid={error ? "true" : "false"}
-        className={`${className} ${errorClassses} mt-1 h-24 max-h-[120px] w-full border-b-[1px] bg-transparent px-3 py-2 focus:border-gray-400 focus:outline-none sm:h-[250px] sm:max-h-[150px] md:max-h-[420px] xl:h-[380px]`}
+        className={`${className} ${errorClassses} mt-1 h-24 max-h-[120px] min-h-[120px] w-full border-b-[1px] bg-transparent px-3 py-2 focus:border-gray-400 focus:outline-none sm:h-[150px] sm:max-h-[200px] md:max-h-[300px]`}
         {...props}
       />
       {error ? (
