@@ -5,7 +5,7 @@ const getVideos = async () => {
   // as of now there is a playlist with mashups
   // TODO: change it to mixes once uploaded and created playlist for DJ sets
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_YOUTUBE_API_LINK}?part=snippet&playlistId=${process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_ID}&maxResults=40&key=${process.env.YOUTUBE_API_KEY}`
+    `${process.env.NEXT_PUBLIC_YOUTUBE_API_LINK}?part=snippet&playlistId=${process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_ID}&maxResults=40&key=${process.env.YOUTUBE_API_KEY}`,
   );
 
   const data = await response.json();

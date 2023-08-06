@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
-import { Notification } from "../types";
+import { NotificationType } from "../types";
 import { NOTIFICATION_MS_TIME } from "@/utils/globals";
 
-type NotificationProps = { notification: Notification };
+type NotificationProps = { notification: NotificationType };
 
 const HIDDEN = "-translate-y-40 opacity-0";
 

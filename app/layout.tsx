@@ -52,9 +52,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      <body className="flex min-h-screen flex-col">
         <header
-          className={`${headerClasses} fixed z-40 mx-auto flex h-20 w-screen select-none items-center justify-between text-white/80`}
+          className={`${headerClasses} sticky top-0 z-50 mx-auto w-full select-none py-5 text-white/80`}
         >
           <nav className="container mx-auto flex w-full items-center justify-between px-6">
             <Link
@@ -76,7 +76,7 @@ export default function RootLayout({
                       path === item.href
                         ? "text-red-primary hover:text-[#851717]"
                         : ""
-                    } px-2 py-1 font-bold transition-all duration-300 hover:scale-105 hover:text-red-primary active:scale-95`}
+                    } px-2 py-1 font-bold transition-all duration-300 hover:-translate-y-[2px] hover:text-red-primary`}
                     href={item.href}
                     title={item.title}
                   >
@@ -87,37 +87,16 @@ export default function RootLayout({
             </ul>
           </nav>
         </header>
-        <div className="container mx-auto overflow-x-hidden px-4 text-white/80 pb-10">
-          <main className="px-11 pt-24">
-            {children}
-            <ul
-              className="fixed right-5 top-24 flex flex-col gap-4 md:gap-6"
-              role="list"
-            >
-              {SOCIALMEDIA_ITEMS.map((item, i) => (
-                <li
-                  key={item.href + i}
-                  className="transition-all duration-300 hover:scale-105 active:scale-95"
-                >
-                  <Link
-                    href={item.href}
-                    title={item.title}
-                    target="_blank"
-                    className="hover:fill-black"
-                  >
-                    <item.icon />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </main>
-        </div>
-        <footer className="flex select-none flex-col items-center gap-4 bg-black/70 p-4 text-white/60 shadow-lg shadow-black/70">
-          <ul className="flex gap-4 pt-4 md:gap-6" role="list">
+        <main className="container relative mx-auto flex flex-1 flex-col justify-center overflow-x-hidden px-11 py-4 text-white/80">
+          {children}
+          <ul
+            className="fixed right-5 top-1/3 flex flex-col gap-4 md:gap-6"
+            role="list"
+          >
             {SOCIALMEDIA_ITEMS.map((item, i) => (
               <li
                 key={item.href + i}
-                className="transition-all duration-300 hover:scale-105 active:scale-95"
+                className="transition-all duration-300 hover:-translate-y-[2px]"
               >
                 <Link href={item.href} title={item.title} target="_blank">
                   <item.icon />
@@ -125,8 +104,22 @@ export default function RootLayout({
               </li>
             ))}
           </ul>
-          <p className="text-center font-semibold">
-            {new Date().getFullYear()}© jackdahaus
+        </main>
+        <footer className="flex w-full select-none flex-col items-center gap-4 bg-black/70 p-4 pb-1 text-white/60 shadow-lg shadow-black/70">
+          <ul className="flex gap-4 pt-4 md:gap-6" role="list">
+            {SOCIALMEDIA_ITEMS.map((item, i) => (
+              <li
+                key={item.href + i}
+                className="transition-all duration-300 hover:-translate-y-[2px]"
+              >
+                <Link href={item.href} title={item.title} target="_blank">
+                  <item.icon />
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="text-center font-semibold uppercase tracking-wider">
+            {new Date().getFullYear()}©jackdahaus
           </p>
         </footer>
       </body>

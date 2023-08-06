@@ -1,4 +1,4 @@
-import YoutubePlayer from "@/components/YotubePlayer";
+import YoutubePlayer from "@/components/YoutubePlayer";
 import getVideos from "@/lib/getVideos";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -12,14 +12,14 @@ const HomePage = async () => {
   const playlistItems = await getVideos();
 
   return (
-    <section className="sm:gap-8 gap-4 select-none flex-col-reverse md:flex-row flex min-h-[calc(100dvh-10rem)] items-center justify-center">
-      <div className="flex flex-col gap-8 font-semibold md:w-3/5 flex-1">
-        <p className="text-4xl italic md:text-5xl lg:text-6xl xl:text-7xl ">
+    <section className="flex select-none flex-col-reverse items-center justify-center gap-4 sm:gap-8 md:flex-row">
+      <div className="flex flex-1 flex-col gap-8 font-semibold md:w-3/5">
+        <p className="text-4xl italic md:text-4xl lg:text-5xl xl:text-6xl ">
           Where the sun, sand, and beats collide -{" "}
-          <span className="text-red-primary">jackdahaus</span> brings the
-          ultimate beach party vibe!
+          <span className="uppercase text-red-primary">jackdahaus</span> brings
+          the ultimate beach party vibe!
         </p>
-        <div className="mx-auto flex w-full md:h-11 flex-col gap-10 md:w-2/3 md:flex-row">
+        <div className="mx-auto flex w-full flex-col gap-10 md:h-11 md:w-2/3 md:flex-row">
           <Link
             href={"/contact"}
             title="Contact"
@@ -43,7 +43,7 @@ const HomePage = async () => {
       >
         <Link
           href={`https://www.youtube.com/watch?v=${playlistItems[0].snippet.resourceId.videoId}`}
-          className="mx-auto md:pl-16 w-fit italic text-gray-500 transition-colors duration-300 hover:text-red-primary/75"
+          className="mx-auto w-fit italic text-gray-500 transition-colors duration-300 hover:text-red-primary/75"
           target="_blank"
         >
           Check out my latest mix
