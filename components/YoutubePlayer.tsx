@@ -65,7 +65,7 @@ const YoutubePlayer: React.FC<YoutubePlayerProps> = ({
           videoId={videoId}
           opts={opts}
           onReady={_onReady}
-          iframeClassName="z-50 aspect-video rounded-lg w-full ml-auto"
+          iframeClassName="aspect-video rounded-lg w-full h-fit max-w-[400px] lg:max-w-full lg:h-full mx-auto"
         />
       )}
     </>
