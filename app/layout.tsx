@@ -87,10 +87,10 @@ export default function RootLayout({
             </ul>
           </nav>
         </header>
-        <main className="container relative mx-auto flex flex-1 flex-col justify-center overflow-x-hidden px-11 py-4 text-white/80">
+        <main className="container relative mx-auto flex flex-1 flex-col justify-center overflow-x-hidden px-12 pt-3 pb-10 text-white/80">
           {children}
           <ul
-            className="fixed right-5 top-1/3 flex flex-col gap-4 md:gap-6"
+            className="fixed right-2 top-1/3 flex flex-col gap-4 md:gap-6"
             role="list"
           >
             {SOCIALMEDIA_ITEMS.map((item, i) => (
