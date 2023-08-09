@@ -2,6 +2,7 @@ import YoutubePlayer from "@/components/YoutubePlayer";
 import getVideos from "@/lib/getVideos";
 import { Metadata } from "next";
 import Link from "next/link";
+import { PageWrapper } from "@/components/PageWrapper";
 
 export const metadata: Metadata = {
   title: "JACKDAHAUS",
@@ -12,7 +13,7 @@ const HomePage = async () => {
   const playlistItems = await getVideos();
 
   return (
-    <section className="flex select-none flex-col-reverse items-center justify-center gap-4 sm:gap-8 md:flex-row">
+    <PageWrapper className="flex select-none flex-col-reverse items-center justify-center gap-4 sm:gap-8 md:flex-row">
       <div className="flex flex-1 flex-col gap-8 font-semibold md:w-3/5">
         <p className="text-2xl italic md:text-3xl lg:text-4xl xl:text-5xl">
           Where the sun, sand, and beats collide -{" "}
@@ -47,7 +48,7 @@ const HomePage = async () => {
           thumbnailUrl={playlistItems[0].snippet.thumbnails.high.url}
         />
       </div>
-    </section>
+    </PageWrapper>
   );
 };
 

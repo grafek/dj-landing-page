@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { PageWrapper } from "@/components/PageWrapper";
 
 export const metadata: Metadata = {
   title: "JACKDAHAUS | ABOUT",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
   return (
-    <div className="flex flex-col flex-wrap text-justify ">
+    <PageWrapper className="flex flex-col flex-wrap text-justify ">
       <div className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
         <div className="mx-auto h-52 w-52 flex-shrink-0 rounded-full bg-[url('/aboutphoto.jpg')] bg-cover bg-center">
           <div className="flex h-full w-full items-center justify-center rounded-full backdrop-brightness-[.35]" />
@@ -47,7 +48,7 @@ const AboutPage = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </PageWrapper>
     // TODO: Add about page
   );
 };

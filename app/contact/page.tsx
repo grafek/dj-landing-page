@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import type { Metadata } from "next";
+import { PageWrapper } from "@/components/PageWrapper";
 
 export const metadata: Metadata = {
   title: "JACKDAHAUS | CONTACT",
@@ -8,12 +9,12 @@ export const metadata: Metadata = {
 
 const ContactPage = () => {
   return (
-    <>
+    <PageWrapper>
       <h1 className="pb-6 font-mono text-2xl font-semibold tracking-wider md:text-5xl">
         Let&apos;s talk
       </h1>
       <ContactForm />
-    </>
+    </PageWrapper>
   );
 };
 
