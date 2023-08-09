@@ -5,18 +5,19 @@ A website to showcase my DJ mixes and to get bookings for parties. I'm a mostly 
 ## ✔️ TODO
 
 - [x] contact-form validation
-- [ ] about page
+- [x] about page
 - [x] obtain messages from the form (emailjs)
-- [ ] some animations (framer?)
-- [ ] add social media links and playlist ID to my mixes (mock data as of now, 2nd Apr 2023)
+- [x] more animations
+- [x] add social media links and playlist ID to my mixes
 - [x] add lazy loading to youtube iframe (heavy bundle)
-
 
 
 ## 🔥 Features
 
-- [x] youtube iframe api calls w/ react-youtube
+- [x] youtube iframe
 - [x] responsive
+- [x] form validation
+- [x] page to page transitions
 
 
 ## 💻 Tech Stack
@@ -28,5 +29,6 @@ A website to showcase my DJ mixes and to get bookings for parties. I'm a mostly 
 **Code Formatting** - [Prettier](https://prettier.io/)  
 **Deployment** - [Vercel](https://vercel.com/)  
 **Linting** - [ESLint](https://eslint.org)  
+**Animations** - [Framer motion](https://www.framer.com/motion/)  
 
 [https://jackdahaus.vercel.app/](https://jackdahaus.vercel.app/)
