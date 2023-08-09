@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 const AboutPage = () => {
   return (
     <div className="flex flex-col flex-wrap text-justify ">
-      <div className="flex flex-col items-center md:flex-row">
+      <div className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
         <div className="mx-auto h-52 w-52 flex-shrink-0 rounded-full bg-[url('/aboutphoto.jpg')] bg-cover bg-center">
-          <div className="flex h-full w-full items-center justify-center rounded-full backdrop-brightness-50" />
+          <div className="flex h-full w-full items-center justify-center rounded-full backdrop-brightness-[.35]" />
         </div>
-        <div className="flex flex-col px-24">
+        <div className="flex flex-col sm:px-12 md:px-24">
           <p>
             Hey there, music enthusiasts! I am{" "}
             <span className="font-semibold uppercase text-red-primary">

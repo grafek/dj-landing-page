@@ -39,7 +39,7 @@ const HomePage = async () => {
         </div>
       </div>
       <div
-        className={`relative my-auto aspect-video sm:w-[50%] md:w-[30%] lg:min-w-[40%] [&>div]:h-full [&>p]:my-auto`}
+        className={`relative my-auto aspect-video w-[75%] sm:w-[50%] md:w-[30%] lg:min-w-[40%] [&>div]:h-full [&>p]:my-auto`}
       >
         <YoutubePlayer
           key={playlistItems[0].snippet.resourceId.videoId}

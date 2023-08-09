@@ -56,10 +56,10 @@ export default function RootLayout({
         <header
           className={`${headerClasses} sticky top-0 z-50 mx-auto w-full select-none py-5 text-white/80`}
         >
-          <nav className="container mx-auto flex w-full items-center justify-between px-6">
+          <nav className="container mx-auto flex w-full items-stretch justify-between px-6">
             <Link
               href={"/"}
-              className="flex items-center justify-center transition-transform duration-300 hover:scale-105"
+              className="flex shrink-0 items-center justify-center transition-transform duration-300 hover:scale-105"
             >
               <Image
                 src={"/logo.png"}
@@ -68,15 +68,15 @@ export default function RootLayout({
                 alt="jackdahaus logo"
               />
             </Link>
-            <ul className="flex md:gap-16 md:text-xl">
+            <ul className="flex items-center gap-4 md:gap-16 md:text-xl">
               {NAV_ITEMS.map((item) => (
-                <li key={item.title}>
+                <li key={item.title} className="h-fit">
                   <Link
                     className={`${
                       path === item.href
                         ? "text-red-primary hover:text-[#851717]"
                         : ""
-                    } px-2 py-1 font-bold transition-all duration-300 hover:-translate-y-[2px] hover:text-red-primary`}
+                    } font-bold transition-all duration-300 hover:text-red-primary sm:hover:-translate-y-[2px]`}
                     href={item.href}
                     title={item.title}
                   >
@@ -87,7 +87,7 @@ export default function RootLayout({
             </ul>
           </nav>
         </header>
-        <main className="container relative mx-auto flex flex-1 flex-col justify-center overflow-x-hidden px-12 pt-3 pb-10 text-white/80">
+        <main className="container relative mx-auto flex flex-1 flex-col justify-center overflow-x-hidden px-12 pb-10 pt-3 text-white/80">
           {children}
           <ul
             className="fixed right-2 top-1/3 flex flex-col gap-4 md:gap-6"
