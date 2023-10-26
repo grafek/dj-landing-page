@@ -1,12 +1,11 @@
 import {
-  FacebookIcon,
   InstagramIcon,
   YoutubeIcon,
   SoundcloudIcon,
+  TikTokIcon,
 } from "@/components/icons";
 
-// add appropriate links to my socials
-// yet to add facebook and tiktok
+// TODO: add facebook when FP ready
 
 export const SOCIALMEDIA_ITEMS = [
   {
@@ -25,9 +24,9 @@ export const SOCIALMEDIA_ITEMS = [
     title: "Instagram Link",
   },
   {
-    icon: FacebookIcon,
-    href: "https://www.facebook.com/",
-    title: "Facebook Link",
+    icon: TikTokIcon,
+    href: "https://www.tiktok.com/@jackdahausjack",
+    title: "TikTok Link",
   },
 ];
 
