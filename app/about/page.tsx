@@ -29,15 +29,13 @@ const AboutPage = () => {
           </p>
           <p className="pt-2">
             Over the past two years, my passion for DJing has been an
-            exhilarating journey of growth and exploration. I&apos;ve immersed
-            myself in the art of mixing, honing my skills and refining my music
-            style. However, this year marks a turning point as I take my DJ
-            career to a whole new level of dedication and commitment. I am
-            thrilled to announce that I am finally ready to conquer new
-            challenges and step onto the stage for my very first gig. The
-            adrenaline surges through me as I prepare to share my passion for
-            music with a live audience, knowing that this is just the beginning
-            of an extraordinary adventure.
+            exhilarating journey of growth and exploration. However, this year
+            marks a turning point as I take my DJ career to a whole new level of
+            dedication and commitment. I am thrilled to announce that I am
+            finally ready to conquer new challenges and step onto the stage for
+            my very first gig. The adrenaline surges through me as I prepare to
+            share my passion for music with a live audience, knowing that this
+            is just the beginning of an extraordinary adventure.
           </p>
           <Link
             href={"/contact"}
@@ -49,7 +47,6 @@ const AboutPage = () => {
         </div>
       </div>
     </PageWrapper>
-    // TODO: Add about page
   );
 };
 
