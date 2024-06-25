@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const ContactPage = () => {
   return (
     <PageWrapper>
-      <h1 className="pb-6 font-mono text-2xl font-semibold tracking-wider md:text-5xl">
+      <h1 className="pb-6 text-2xl font-semibold md:text-3xl tracking-wider">
         Let&apos;s talk
       </h1>
       <ContactForm />

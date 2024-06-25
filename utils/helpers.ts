@@ -8,3 +8,10 @@ export function debounce(fn: Function, sleep = 200) {
     }, sleep);
   };
 }
+
+export function getDJingYears() {
+  const currYear = new Date().getFullYear();
+  const startDJingYear = new Date("6/6/2021").getFullYear();
+
+  return currYear - startDJingYear;
+}

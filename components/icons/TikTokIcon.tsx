@@ -2,7 +2,7 @@ export default function TikTokIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-5 fill-gray-400 transition-colors duration-300 hover:fill-red-primary md:h-8 md:w-8"
+      className="h-5 w-5 fill-gray-400 transition-colors duration-300 hover:fill-purple-primary"
       viewBox="0 0 256 256"
     >
       <path

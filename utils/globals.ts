@@ -3,9 +3,9 @@ import {
   YoutubeIcon,
   SoundcloudIcon,
   TikTokIcon,
+  FacebookIcon,
+  MixcloudIcon,
 } from "@/components/icons";
-
-// TODO: add facebook when FP ready
 
 export const SOCIALMEDIA_ITEMS = [
   {
@@ -19,6 +19,11 @@ export const SOCIALMEDIA_ITEMS = [
     title: "Soundcloud Link",
   },
   {
+    icon: MixcloudIcon,
+    href: "https://www.mixcloud.com/jackdahaus/",
+    title: "Mixcloud Link",
+  },
+  {
     icon: InstagramIcon,
     href: "https://www.instagram.com/jackdahaus/",
     title: "Instagram Link",
@@ -27,6 +32,11 @@ export const SOCIALMEDIA_ITEMS = [
     icon: TikTokIcon,
     href: "https://www.tiktok.com/@jackdahausjack",
     title: "TikTok Link",
+  },
+  {
+    icon: FacebookIcon,
+    href: "https://www.facebook.com/people/jackdahaus/100095363321137",
+    title: "Facebook Link",
   },
 ];
 

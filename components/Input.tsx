@@ -30,9 +30,9 @@ const Input = <T extends FieldValues>({
   required,
   ...props
 }: InputProps<T>) => {
-  const errorClassses = error ? "border-red-primary" : "border-gray-600";
+  const errorClassses = error ? "border-purple-primary" : "border-gray-600";
   const requiredAsterisk = required ? (
-    <span className="font-semibold text-red-primary">*</span>
+    <span className="font-semibold text-purple-primary">*</span>
   ) : null;
 
   const WITHIN = "top-4 -z-20 px-4";
@@ -65,7 +65,7 @@ const Input = <T extends FieldValues>({
         {...props}
       />
       {error ? (
-        <span role={"alert"} className="text-sm text-red-primary md:text-base">
+        <span role={"alert"} className="text-sm text-purple-primary md:text-base">
           {error?.type == "required" ? "Required" : null}
           {error?.type == "pattern" ? "Input valid e-mail" : null}
         </span>

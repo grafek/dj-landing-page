@@ -63,7 +63,7 @@ const ContactForm = () => {
   return (
     <>
       <form
-        className="flex w-full flex-col gap-6"
+        className="flex w-full md:w-3/5 flex-col gap-6"
         id="contact-form"
         ref={form}
         onSubmit={handleSubmit(onSubmit)}
@@ -106,7 +106,7 @@ const ContactForm = () => {
             required
           />
         </div>
-        <button className="mx-auto flex min-w-[100px] items-center justify-center rounded-sm bg-red-primary px-3 py-1 text-xl font-semibold outline outline-1 outline-red-primary transition-all duration-300 hover:bg-transparent">
+        <button className="bg-purple-primary outline-purple-primary mx-auto flex min-w-[100px] items-center justify-center rounded-sm px-2 py-1 font-semibold outline outline-1 transition-all duration-300 hover:bg-transparent">
           {btnState}
         </button>
       </form>

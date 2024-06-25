@@ -3,10 +3,11 @@ import { debounce } from "@/utils/helpers";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { SOCIALMEDIA_ITEMS } from "@/utils/globals";
 import "./globals.css";
 import { AnimatePresence } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
+import { Logo } from "@/components/icons";
 
 const NAV_ITEMS = [
   {
@@ -29,7 +30,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const path = usePathname();
-
   const [headerClasses, setHeaderClasses] = useState("");
 
   const handleScroll = () => {
@@ -41,7 +41,7 @@ export default function RootLayout({
     return;
   };
 
-  const debouncedHandleScroll = debounce(handleScroll, 30);
+  const debouncedHandleScroll = debounce(handleScroll, 1);
 
   useEffect(() => {
     window.addEventListener("scroll", debouncedHandleScroll);
@@ -53,6 +53,19 @@ export default function RootLayout({
 
   return (
     <html lang="en" key={path}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin={"anonymous"}
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <Analytics />
       <AnimatePresence>
         <body className="flex min-h-screen flex-col">
           <header
@@ -61,24 +74,19 @@ export default function RootLayout({
             <nav className="container mx-auto flex w-full items-stretch justify-between px-6">
               <Link
                 href={"/"}
-                className="flex shrink-0 items-center justify-center transition-transform duration-300 hover:scale-105"
+                className="flex h-10 w-24 shrink-0 items-center justify-center transition-transform duration-300 hover:scale-105"
               >
-                <Image
-                  src={"/logo.png"}
-                  height={40}
-                  width={100}
-                  alt="jackdahaus logo"
-                />
+                <Logo />
               </Link>
-              <ul className="flex items-center gap-4 md:gap-16 md:text-xl">
+              <ul className="flex items-center gap-4 text-sm md:gap-8 md:text-base">
                 {NAV_ITEMS.map((item) => (
                   <li key={item.title} className="h-fit">
                     <Link
                       className={`${
                         path === item.href
-                          ? "text-red-primary hover:text-[#851717]"
+                          ? "text-purple-primary hover:text-[#851717]"
                           : ""
-                      } font-bold transition-all duration-300 hover:text-red-primary sm:hover:-translate-y-[2px]`}
+                      } hover:text-purple-primary font-semibold transition-all duration-300 sm:hover:-translate-y-[2px]`}
                       href={item.href}
                       title={item.title}
                     >
@@ -89,26 +97,11 @@ export default function RootLayout({
               </ul>
             </nav>
           </header>
-          <main className="container relative mx-auto flex flex-1 flex-col justify-center overflow-x-hidden px-12 pb-10 pt-3 text-white/80">
+          <main className="container relative mx-auto flex flex-1 flex-col justify-center overflow-x-hidden px-12 pb-8 pt-3 text-white/80">
             {children}
-            <ul
-              className="fixed right-2 top-1/3 flex flex-col gap-4 md:gap-6"
-              role="list"
-            >
-              {SOCIALMEDIA_ITEMS.map((item, i) => (
-                <li
-                  key={item.href + i}
-                  className="transition-all duration-300 hover:-translate-y-[2px]"
-                >
-                  <Link href={item.href} title={item.title} target="_blank">
-                    <item.icon />
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </main>
-          <footer className="flex w-full select-none flex-col items-center gap-4 bg-black/70 p-4 pb-1 text-white/60 shadow-lg shadow-black/70">
-            <ul className="flex gap-4 pt-4 md:gap-6" role="list">
+          <footer className="flex w-full select-none flex-col items-center gap-2 p-4 pb-1 text-white/60 shadow-lg shadow-black/70">
+            <ul className="flex gap-4 pt-4" role="list">
               {SOCIALMEDIA_ITEMS.map((item, i) => (
                 <li
                   key={item.href + i}
@@ -120,8 +113,8 @@ export default function RootLayout({
                 </li>
               ))}
             </ul>
-            <p className="text-center font-semibold uppercase tracking-wider">
-              {new Date().getFullYear()}©jackdahaus
+            <p className="text-center text-xs">
+              {new Date().getFullYear()}© jackdahaus
             </p>
           </footer>
         </body>
