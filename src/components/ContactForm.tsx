@@ -1,12 +1,12 @@
 "use client";
-import Input from "@/components/Input";
-import TextArea from "@/components/TextArea";
+import Input from "@/src/components/Input";
+import TextArea from "@/src/components/TextArea";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import type { NotificationType } from "../types";
+import type { NotificationType } from "../../types";
 import emailjs from "@emailjs/browser";
 import { useEffect, useRef, useState } from "react";
 import { NOTIFICATION_MS_TIME } from "@/utils/globals";
-import Notification from "@/components/Notification";
+import Notification from "@/src/components/Notification";
 
 type ContactFormInput = {
   name: string;

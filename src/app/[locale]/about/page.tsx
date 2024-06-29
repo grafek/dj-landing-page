@@ -1,7 +1,8 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { PageWrapper } from "@/components/PageWrapper";
+import { PageWrapper } from "@/src/components/PageWrapper";
 import { SOCIALMEDIA_ITEMS } from "@/utils/globals";
+import { useTranslations } from "next-intl";
+import { Link } from "@/src/navigation";
 
 export const metadata: Metadata = {
   title: "jackdahaus | about",
@@ -12,6 +13,8 @@ const AboutPage = () => {
   const igLink = SOCIALMEDIA_ITEMS.find((i) =>
     i.title.toLowerCase().includes("instagram"),
   )?.href as string;
+
+  const t = useTranslations("About");
 
   return (
     <PageWrapper
@@ -35,22 +38,19 @@ const AboutPage = () => {
         </Link>
       </div>
 
-      <div className="flex flex-col gap-4 pt-4">
+      <div className="flex flex-col gap-4 pt-4 text-sm">
         <p>
-          Hey there! I am{" "}
-          <span className="font-semibold text-purple-primary">jackdahaus</span>,
-          a passionate DJ with an insatiable love for almost all genres. House
-          music has left a big mark on my soul since the beginning, although I
-          also like to play it fast (trance, techno).
+          {t("P1")}{" "}
+          <span className="font-semibold text-purple-primary">jackdahaus</span>,{" "}
+          {t("P2")}
         </p>
         <div>
-          Over the past two years, my passion for DJing has been an exhilarating
-          journey of growth and exploration.
+          {t("His")}
           <div className="pt-2">
-            During this time I...
+            {t("HisPresentation")}
             <ul>
               <li>
-                ✅played my first gig @
+                ✅{t("HisItem1")}
                 <Link
                   href={"https://www.instagram.com/p/C7hhcgLoXSa/?img_index=1"}
                   target="_blank"
@@ -61,7 +61,7 @@ const AboutPage = () => {
                 , outdoor haus stage.
               </li>
               <li>
-                ✅have started cooperation with an underground rapper{" "}
+                ✅{t("HisItem2")}{" "}
                 <Link
                   href={"https://www.instagram.com/hbi_hbo/"}
                   target="_blank"
@@ -69,8 +69,7 @@ const AboutPage = () => {
                 >
                   HBI
                 </Link>
-                , which includes playing beats and warming up the crowd before
-                his concerts.
+                {t("HisItem2Part2")}
               </li>
             </ul>
           </div>
@@ -80,7 +79,7 @@ const AboutPage = () => {
           title="Contact"
           className="w-fit font-semibold italic underline decoration-purple-primary underline-offset-4 transition-colors duration-300 hover:text-purple-primary"
         >
-          Try me!
+          {t("TryMe")}
         </Link>
       </div>
     </PageWrapper>

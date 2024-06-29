@@ -1,7 +1,8 @@
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/src/components/ContactForm";
 import type { Metadata } from "next";
-import { PageWrapper } from "@/components/PageWrapper";
-import Heading from "@/components/Heading";
+import { PageWrapper } from "@/src/components/PageWrapper";
+import Heading from "@/src/components/Heading";
+import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
   title: "jackdahaus | contact",
@@ -9,10 +10,11 @@ export const metadata: Metadata = {
 };
 
 const ContactPage = () => {
+  const t = useTranslations("Contact");
   return (
     <PageWrapper id="contact">
       <Heading level={1} className="pb-6 md:pb-8">
-        Let&apos;s talk
+        {t("Heading")}
       </Heading>
       <ContactForm />
     </PageWrapper>

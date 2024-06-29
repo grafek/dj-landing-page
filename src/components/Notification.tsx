@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { NotificationType } from "../types";
+import { NotificationType } from "../../types";
 import { NOTIFICATION_MS_TIME } from "@/utils/globals";
 
 type NotificationProps = { notification: NotificationType };

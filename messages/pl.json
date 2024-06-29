@@ -1,0 +1,25 @@
+{
+  "Header": {
+    "Home": "HOME",
+    "About": "O MNIE",
+    "Contact": "KONTAKT"
+  },
+  "Home": {
+    "Text": "Poznaj różne oblicza haus'u na Twoim następnym wydarzeniu!",
+    "CTA1": "Booking",
+    "CTA2": "O Mnie"
+  },
+  "About": {
+    "P1": "Cześć! Jestem",
+    "P2": "pasjonatem muzyki z miłością do prawie wszystkich gatunków. Muzyka house odcisnęła duże piętno na mojej duszy od samego początku, choć lubię też zagrać szybko (trance, techno, hard groove).",
+    "His": "W ciągu ostatnich dwóch lat moja pasja podróż z DJką była bardzo ekscytująca oraz obfita.",
+    "HisPresentation": "Podczas tego czasu.. ",
+    "HisItem1": "zagrałem pierwszego seta na ",
+    "HisItem2": "rozpocząłem współpracę z raperem",
+    "HisItem2Part2": ", co obejmuje granie bitów i rozgrzewanie publiczności przed jego koncertami.",
+    "TryMe": "Try me!"
+  },
+  "Contact": {
+    "Heading": "Porozmawiajmy:)"
+  }
+}
