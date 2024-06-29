@@ -1,8 +1,8 @@
 import { Analytics } from "@vercel/analytics/react";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import Footer from "../Footer";
-import Header from "../Header";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 
 export default async function LocaleLayout({
   children,
@@ -27,7 +27,6 @@ export default async function LocaleLayout({
           rel="stylesheet"
         />
       </head>
-      <Analytics />
       <body className="flex min-h-[100dvh] flex-col">
         <NextIntlClientProvider messages={messages}>
           <Header />
@@ -36,6 +35,7 @@ export default async function LocaleLayout({
           </main>
           <Footer />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
