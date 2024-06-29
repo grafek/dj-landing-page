@@ -1,20 +1,9 @@
 # DJ Landing page 🎶
 
-A website to showcase my DJ mixes and to get bookings for parties. I'm a mostly house music DJ but I'm not limiting myself to only house music.
-
-## ✔️ TODO
-
-- [x] contact-form validation
-- [x] about page
-- [x] obtain messages from the form (emailjs)
-- [x] more animations
-- [x] add social media links and playlist ID to my mixes
-- [x] add lazy loading to youtube iframe (heavy bundle)
-
+A website to showcase my DJ mixes and to get bookings for parties.
 
 ## 🔥 Features
 
-- [x] youtube iframe
 - [x] responsive
 - [x] form validation
 - [x] page to page transitions
