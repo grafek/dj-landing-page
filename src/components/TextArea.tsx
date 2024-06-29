@@ -36,13 +36,12 @@ const TextArea = <T extends FieldValues>({
   ) : null;
 
   const WITHIN = "top-4 -z-20 px-4";
-
   const FLOAT = "px-2 -top-1 z-20 scale-90";
 
   const [labelClasses, setLabelClasses] = useState(WITHIN);
 
   return (
-    <>
+    <div className="relative">
       <label
         htmlFor={name}
         className={`${labelClasses} absolute select-none text-xs font-bold uppercase tracking-wide text-gray-500 transition-all duration-300`}
@@ -61,15 +60,18 @@ const TextArea = <T extends FieldValues>({
           }
         }}
         aria-invalid={error ? "true" : "false"}
-        className={`${className} ${errorClassses} mt-1 h-24 max-h-[120px] min-h-[120px] w-full border-b-[1px] bg-transparent px-3 py-2 focus:border-gray-400 focus:outline-none sm:h-[150px] sm:max-h-[200px] md:max-h-[300px]`}
+        className={`${className} ${errorClassses} mt-1 h-24 max-h-[120px] min-h-[120px] w-full resize-none border-b-[1px] bg-transparent px-3 py-2 focus:border-gray-400 focus:outline-none sm:h-[150px] sm:max-h-[200px] md:max-h-[300px]`}
         {...props}
       />
       {error ? (
-        <span role={"alert"} className="text-sm text-purple-primary md:text-base">
+        <span
+          role={"alert"}
+          className="text-sm text-purple-primary md:text-base"
+        >
           {error?.type == "required" ? "Required" : null}
         </span>
       ) : null}
-    </>
+    </div>
   );
 };
 

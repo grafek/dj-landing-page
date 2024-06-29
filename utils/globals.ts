@@ -5,7 +5,7 @@ import {
   TikTokIcon,
   FacebookIcon,
   MixcloudIcon,
-} from "@/components/icons";
+} from "@/src/components/icons";
 
 export const SOCIALMEDIA_ITEMS = [
   {

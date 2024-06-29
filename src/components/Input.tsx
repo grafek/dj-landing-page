@@ -36,13 +36,12 @@ const Input = <T extends FieldValues>({
   ) : null;
 
   const WITHIN = "top-4 -z-20 px-4";
-
   const FLOAT = "px-2 -top-1 z-20 scale-90";
 
   const [labelClasses, setLabelClasses] = useState(WITHIN);
 
   return (
-    <>
+    <div className="relative">
       <label
         htmlFor={name}
         className={`${labelClasses} absolute select-none text-xs font-bold uppercase tracking-wide text-gray-500 transition-all duration-300`}
@@ -70,7 +69,7 @@ const Input = <T extends FieldValues>({
           {error?.type == "pattern" ? "Input valid e-mail" : null}
         </span>
       ) : null}
-    </>
+    </div>
   );
 };
 

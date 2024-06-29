@@ -1,20 +1,22 @@
 "use client";
 
+import '../app/globals.css'
 import { motion } from "framer-motion";
 
-export const PageWrapper = ({
-  children,
-  className,
-}: {
+type Props = {
   children: React.ReactNode;
   className?: string;
-}) => (
-  <motion.div
+  id: string;
+};
+
+export const PageWrapper = ({ children, className, id }: Props) => (
+  <motion.section
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: 20 }}
-    className={`${className}`}
+    className={`${className} w-full md:w-3/5`}
+    id={id}
   >
     {children}
-  </motion.div>
+  </motion.section>
 );
