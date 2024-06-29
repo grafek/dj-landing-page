@@ -3,7 +3,7 @@ import { debounce } from "@/utils/helpers";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { useState, useEffect, ChangeEventHandler, ChangeEvent } from "react";
-import { Logo } from "../components/icons";
+import { Logo } from "./icons";
 import { useTranslations } from "next-intl";
 import { useRouter } from "../navigation";
 import { AppLocaleType } from "../config";
