@@ -6,7 +6,7 @@ import { Link } from "@/src/navigation";
 
 export const metadata: Metadata = {
   title: "jackdahaus",
-  description: "Your next DJ - Bringing the ultimate beach party vibe!",
+  description: "jackdahaus - your next DJ bringing haus vibes!",
 };
 
 const HomePage = () => {

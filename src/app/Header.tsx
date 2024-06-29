@@ -102,11 +102,9 @@ const LanguageSwitcher = () => {
   const handleLanguageChange = (selectedLocale: AppLocaleType) => {
     setSelectedLanguage(selectedLocale);
     let strippedPath = "";
-    console.log(pathname.length);
     if (pathname.length > 3) {
       strippedPath = pathname.split(locale as string)[1];
     } else if (pathname.length === 3) {
-      console.log(locale);
       strippedPath = selectedLocale;
     }
     router.push(strippedPath, { locale: selectedLocale as AppLocaleType });
