@@ -9,6 +9,40 @@ import { AnimatePresence } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 import { Logo } from "@/components/icons";
 
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const path = usePathname();
+
+  return (
+    <html lang="en" key={path}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin={"anonymous"}
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <Analytics />
+      <AnimatePresence>
+        <body className="flex min-h-[100dvh] flex-col">
+          <Header />
+          <main className="container relative mx-auto flex flex-1 flex-col justify-center overflow-x-hidden px-6 pb-8 pt-3 text-white/80 md:px-12 xl:px-20">
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </AnimatePresence>
+    </html>
+  );
+}
 const NAV_ITEMS = [
   {
     title: "HOME",
@@ -24,12 +58,9 @@ const NAV_ITEMS = [
   },
 ];
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function Header() {
   const path = usePathname();
+
   const [headerClasses, setHeaderClasses] = useState("");
 
   const handleScroll = () => {
@@ -52,73 +83,56 @@ export default function RootLayout({
   }, [debouncedHandleScroll]);
 
   return (
-    <html lang="en" key={path}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin={"anonymous"}
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <Analytics />
-      <AnimatePresence>
-        <body className="flex min-h-screen flex-col">
-          <header
-            className={`${headerClasses} sticky top-0 z-50 mx-auto w-full select-none py-5 text-white/80`}
-          >
-            <nav className="container mx-auto flex w-full items-stretch justify-between px-6">
+    <header
+      className={`${headerClasses} sticky top-0 z-50 mx-auto w-full select-none py-5 text-white/80`}
+    >
+      <nav className="container mx-auto flex w-full items-stretch justify-between px-6 md:px-12 xl:px-20">
+        <Link
+          href={"/"}
+          className="flex h-10 w-24 shrink-0 items-center justify-center transition-transform duration-300 hover:scale-105"
+        >
+          <Logo />
+        </Link>
+        <ul className="flex items-center gap-4 text-sm md:gap-8 md:text-base">
+          {NAV_ITEMS.map((item) => (
+            <li key={item.title} className="h-fit">
               <Link
-                href={"/"}
-                className="flex h-10 w-24 shrink-0 items-center justify-center transition-transform duration-300 hover:scale-105"
+                className={`${
+                  path === item.href
+                    ? "text-purple-primary hover:text-[#851717]"
+                    : ""
+                } font-semibold transition-all duration-300 hover:text-purple-primary sm:hover:-translate-y-[2px]`}
+                href={item.href}
+                title={item.title}
               >
-                <Logo />
+                {item.title}
               </Link>
-              <ul className="flex items-center gap-4 text-sm md:gap-8 md:text-base">
-                {NAV_ITEMS.map((item) => (
-                  <li key={item.title} className="h-fit">
-                    <Link
-                      className={`${
-                        path === item.href
-                          ? "text-purple-primary hover:text-[#851717]"
-                          : ""
-                      } hover:text-purple-primary font-semibold transition-all duration-300 sm:hover:-translate-y-[2px]`}
-                      href={item.href}
-                      title={item.title}
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </header>
-          <main className="container relative mx-auto flex flex-1 flex-col justify-center overflow-x-hidden px-12 pb-8 pt-3 text-white/80">
-            {children}
-          </main>
-          <footer className="flex w-full select-none flex-col items-center gap-2 p-4 pb-1 text-white/60 shadow-lg shadow-black/70">
-            <ul className="flex gap-4 pt-4" role="list">
-              {SOCIALMEDIA_ITEMS.map((item, i) => (
-                <li
-                  key={item.href + i}
-                  className="transition-all duration-300 hover:-translate-y-[2px]"
-                >
-                  <Link href={item.href} title={item.title} target="_blank">
-                    <item.icon />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="text-center text-xs">
-              {new Date().getFullYear()}© jackdahaus
-            </p>
-          </footer>
-        </body>
-      </AnimatePresence>
-    </html>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="flex w-full select-none flex-col items-center gap-2 p-4 pb-1 text-white/60 shadow-lg shadow-black/70">
+      <ul className="flex gap-4 pt-4" role="list">
+        {SOCIALMEDIA_ITEMS.map((item, i) => (
+          <li
+            key={item.href + i}
+            className="transition-all duration-300 hover:-translate-y-[2px]"
+          >
+            <Link href={item.href} title={item.title} target="_blank">
+              <item.icon />
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <p className="text-center text-xs">
+        {new Date().getFullYear()}© jackdahaus
+      </p>
+    </footer>
   );
 }

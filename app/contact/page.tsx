@@ -1,18 +1,19 @@
 import ContactForm from "@/components/ContactForm";
 import type { Metadata } from "next";
 import { PageWrapper } from "@/components/PageWrapper";
+import Heading from "@/components/Heading";
 
 export const metadata: Metadata = {
-  title: "JACKDAHAUS | CONTACT",
+  title: "jackdahaus | contact",
   description: "Fill out the form to get in touch with me",
 };
 
 const ContactPage = () => {
   return (
-    <PageWrapper>
-      <h1 className="pb-6 text-2xl font-semibold md:text-3xl tracking-wider">
+    <PageWrapper id="contact">
+      <Heading level={1} className="pb-6 md:pb-8">
         Let&apos;s talk
-      </h1>
+      </Heading>
       <ContactForm />
     </PageWrapper>
   );

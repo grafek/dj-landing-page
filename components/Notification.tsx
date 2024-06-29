@@ -7,15 +7,13 @@ import { NOTIFICATION_MS_TIME } from "@/utils/globals";
 type NotificationProps = { notification: NotificationType };
 
 const HIDDEN = "-translate-y-40 opacity-0";
-
 const SHOW = "translate-y-0 opacity-100";
 
 const Notification: React.FC<NotificationProps> = ({ notification }) => {
   const { message, isSuccessful, isShown } = notification;
+  const [animationClasses, setAnimationClasses] = useState(HIDDEN);
 
   const stateClasses = isSuccessful ? "bg-green-600" : "bg-red-700";
-
-  const [animationClasses, setAnimationClasses] = useState(HIDDEN);
 
   useEffect(() => {
     // add animation classes on mount
@@ -39,7 +37,7 @@ const Notification: React.FC<NotificationProps> = ({ notification }) => {
         <div
           className={`${stateClasses} mx-auto flex w-1/2 min-w-fit flex-col items-center justify-center rounded-md px-8 py-2 md:w-72`}
         >
-          <p className={`font-semibold`}>{message}</p>
+          <p className={`font-medium`}>{message}</p>
         </div>
       ) : null}
     </div>

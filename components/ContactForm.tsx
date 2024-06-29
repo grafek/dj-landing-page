@@ -2,14 +2,20 @@
 import Input from "@/components/Input";
 import TextArea from "@/components/TextArea";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import type { ContactFormInput, NotificationType } from "../types";
+import type { NotificationType } from "../types";
 import emailjs from "@emailjs/browser";
 import { useEffect, useRef, useState } from "react";
 import { NOTIFICATION_MS_TIME } from "@/utils/globals";
 import Notification from "@/components/Notification";
 
+type ContactFormInput = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 const ContactForm = () => {
-  const form = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [notification, setNotification] = useState<NotificationType>({
     isShown: false,
   });
@@ -23,13 +29,13 @@ const ContactForm = () => {
   } = useForm<ContactFormInput>();
 
   const onSubmit: SubmitHandler<ContactFormInput> = async () => {
-    if (!form.current) return;
+    if (!formRef.current) return;
     try {
       setBtnState("Sending...");
       const res = await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE as string,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE as string,
-        form?.current,
+        formRef?.current,
         process.env.NEXT_PUBLIC_EMAILJS_KEY,
       );
       if (res.status === 200) {
@@ -61,57 +67,49 @@ const ContactForm = () => {
   }, [notification?.isShown, isSubmitSuccessful]);
 
   return (
-    <>
-      <form
-        className="flex w-full md:w-3/5 flex-col gap-6"
-        id="contact-form"
-        ref={form}
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <div className="relative">
-          <Input
-            labelname="Name"
-            register={register}
-            error={errors.name}
-            validation={{ required: true }}
-            name="name"
-            id="name"
-            type="text"
-            required
-          />
-        </div>
-        <div className="relative">
-          <Input
-            labelname="E-mail"
-            name="email"
-            register={register}
-            error={errors.email}
-            type="email"
-            validation={{
-              required: true,
-              pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            }}
-            id="e-mail"
-            required
-          />
-        </div>
-        <div className="relative">
-          <TextArea
-            register={register}
-            error={errors.message}
-            validation={{ required: true }}
-            labelname="Message"
-            name="message"
-            id="message"
-            required
-          />
-        </div>
-        <button className="bg-purple-primary outline-purple-primary mx-auto flex min-w-[100px] items-center justify-center rounded-sm px-2 py-1 font-semibold outline outline-1 transition-all duration-300 hover:bg-transparent">
-          {btnState}
-        </button>
-      </form>
+    <form
+      className="flex flex-col gap-4 md:gap-6"
+      id="contact-form"
+      ref={formRef}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <Input
+        labelname="Name"
+        register={register}
+        error={errors.name}
+        validation={{ required: true }}
+        name="name"
+        id="name"
+        type="text"
+        required
+      />
+      <Input
+        labelname="E-mail"
+        name="email"
+        register={register}
+        error={errors.email}
+        type="email"
+        validation={{
+          required: true,
+          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        }}
+        id="e-mail"
+        required
+      />
+      <TextArea
+        register={register}
+        error={errors.message}
+        validation={{ required: true }}
+        labelname="Message"
+        name="message"
+        id="message"
+        required
+      />
+      <button className="mx-auto flex min-w-[100px] items-center justify-center rounded-sm bg-purple-primary px-2 py-1 font-semibold outline outline-1 outline-purple-primary transition-all duration-300 hover:bg-transparent">
+        {btnState}
+      </button>
       <Notification notification={notification} />
-    </>
+    </form>
   );
 };
 
