@@ -101,7 +101,7 @@ const HisSection = ({ t }: { t: (key: string) => string }) => {
                 <Link
                   href={item.link.href}
                   target="_blank"
-                  className="w-fit font-semibold italic underline decoration-purple-primary underline-offset-4 transition-colors duration-300 hover:text-purple-primary"
+                  className="w-fit font-medium italic underline decoration-purple-primary underline-offset-4 transition-colors duration-300 hover:text-purple-primary"
                 >
                   {item.link.text}
                 </Link>
