@@ -17,9 +17,23 @@
     "HisItem1": "zagrałem pierwszego seta na ",
     "HisItem2": "rozpocząłem współpracę z raperem",
     "HisItem2Part2": ", co obejmuje granie bitów i rozgrzewanie publiczności przed jego koncertami.",
-    "TryMe": "Try me!"
+    "TryMe": "Try me!",
+    "HisItem3": "dołączyłem do rapowego kolektywu ",
+    "HisItem3Part2": ", również gram bity i warmup przed koncertami"
   },
   "Contact": {
-    "Heading": "Porozmawiajmy:)"
+    "Heading": "Porozmawiajmy..",
+    "Send": "Wyślij",
+    "Sending": "Wysyłam...",
+    "NameInput": "Imię",
+    "MessageInput": "Wiadomość"
+  },
+  "Notification": {
+    "Sent": "🎉 Wiadomość wysłana!",
+    "Error": "✖️ Coś poszło nie tak... Spróbuj ponownie później!"
+  },
+  "ValidationMessages": {
+    "Required": "Wymagane",
+    "E-mail": "Nieprawidłowy adres e-mail"
   }
 }

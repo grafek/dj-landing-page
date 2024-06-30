@@ -1,8 +1,8 @@
-import ContactForm from "@/src/components/ContactForm";
 import type { Metadata } from "next";
 import { PageWrapper } from "@/src/components/PageWrapper";
-import Heading from "@/src/components/Heading";
 import { useTranslations } from "next-intl";
+import { Heading } from "@/src/components/ui";
+import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "jackdahaus | contact",

@@ -1,12 +1,12 @@
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import { PageWrapper } from "@/src/components/PageWrapper";
-import Heading from "@/src/components/Heading";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/navigation";
+import { Heading } from "@/src/components/ui";
 
 export const metadata: Metadata = {
   title: "jackdahaus",
-  description: "jackdahaus - your next DJ bringing haus vibes!",
+  description: "jackdahaus - bringing the haus vibes!",
 };
 
 const HomePage = () => {

@@ -1,5 +1,5 @@
-import { SOCIALMEDIA_ITEMS } from "@/utils/globals";
-import { Link } from "../navigation";
+import { CURRENT_YEAR, SOCIALMEDIA_ITEMS } from "@/utils/constants";
+import { Link } from "../../navigation";
 
 function Footer() {
   return (
@@ -16,9 +16,7 @@ function Footer() {
           </li>
         ))}
       </ul>
-      <p className="text-center text-xs">
-        {new Date().getFullYear()}© jackdahaus
-      </p>
+      <p className="text-center text-xs">{CURRENT_YEAR}© jackdahaus</p>
     </footer>
   );
 }
