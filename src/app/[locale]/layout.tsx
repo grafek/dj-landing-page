@@ -16,9 +16,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <NextIntlClientProvider messages={messages}>
-        <body className="flex min-h-[100dvh] flex-col">
+        <body className="flex min-h-[100dvh] flex-col overflow-x-hidden">
           <Header />
-          <main className="container relative mx-auto flex flex-1 flex-col justify-center overflow-x-hidden px-6 pb-8 pt-3 text-white/80 md:px-12 xl:px-20">
+          <main className="container relative mx-auto flex flex-1 flex-col justify-center px-6 pb-8 pt-3 text-white/80 md:px-12 xl:px-20">
             {children}
           </main>
           <Footer />

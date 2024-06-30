@@ -1,5 +1,7 @@
 "use client";
-import { useState, useEffect, useRef, type ReactNode } from "react";
+import useClickOutside from "@/src/hooks/useClickOutside";
+import { useState, useRef, type ReactNode } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type DropdownProps<T> = {
   options: T[] | readonly T[];
@@ -23,26 +25,14 @@ const Dropdown = <T extends {}>({
     setIsOpen(!isOpen);
   };
 
+  const closeDropdown = () => setIsOpen(false);
+
   const handleOptionClick = (option: T) => {
     onSelect(option);
     setIsOpen(false);
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node)
-    ) {
-      setIsOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  useClickOutside(dropdownRef, closeDropdown);
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -63,22 +53,33 @@ const Dropdown = <T extends {}>({
         </svg>
       </button>
 
-      {isOpen && (
-        <div className="absolute right-0 mt-2 w-12 rounded-md bg-slate-950 shadow-lg ring-1 ring-black ring-opacity-5">
-          <div className="py-1">
-            {options.map((option) => (
-              <button
-                key={String(option)}
-                type="button"
-                className="flex w-full items-center justify-start px-4 py-2 text-left hover:bg-slate-900 focus:outline-none"
-                onClick={() => handleOptionClick(option)}
-              >
-                {renderOption(option)}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen ? (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute right-0 mt-2 w-12 rounded-md bg-slate-950 shadow-lg ring-1 ring-black ring-opacity-5"
+          >
+            <div className="py-1">
+              {options.map((option, index) => (
+                <motion.button
+                  key={String(option)}
+                  type="button"
+                  className="flex w-full items-center justify-start px-4 py-2 text-left hover:bg-slate-900 focus:outline-none"
+                  onClick={() => handleOptionClick(option)}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                >
+                  {renderOption(option)}
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 };
