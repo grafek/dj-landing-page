@@ -40,4 +40,25 @@ export const SOCIALMEDIA_ITEMS = [
   },
 ];
 
+export const COLLAB_ARTISTS = {
+  hbi: {
+    name: "HBI",
+    ig: "https://www.instagram.com/hbi_hbo/",
+  },
+  flamewave: {
+    name: "Flame Wave",
+    ig: "https://www.instagram.com/flamewaveofficial_/",
+  },
+};
+
+export const VENUES_PLAYED = {
+  tamka: {
+    name: "Wyspa Tamka",
+    ig: "https://www.instagram.com/wyspatamka",
+    ownIgPost: "https://www.instagram.com/p/C7hhcgLoXSa/?img_index=1",
+  },
+};
+
 export const NOTIFICATION_MS_TIME = 4000;
+export const DJING_START_YEAR = new Date("6/6/2021").getFullYear();
+export const CURRENT_YEAR = new Date().getFullYear();

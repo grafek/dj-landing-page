@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { NotificationType } from "../../types";
-import { NOTIFICATION_MS_TIME } from "@/utils/globals";
+import type { NotificationType } from "@/types";
+import { NOTIFICATION_MS_TIME } from "@/utils/constants";
 
 type NotificationProps = { notification: NotificationType };
 
@@ -13,7 +13,7 @@ const Notification: React.FC<NotificationProps> = ({ notification }) => {
   const { message, isSuccessful, isShown } = notification;
   const [animationClasses, setAnimationClasses] = useState(HIDDEN);
 
-  const stateClasses = isSuccessful ? "bg-green-600" : "bg-red-700";
+  const stateClasses = isSuccessful ? "bg-success" : "bg-error";
 
   useEffect(() => {
     // add animation classes on mount

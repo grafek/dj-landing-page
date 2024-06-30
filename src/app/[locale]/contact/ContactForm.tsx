@@ -1,12 +1,12 @@
 "use client";
-import Input from "@/src/components/Input";
-import TextArea from "@/src/components/TextArea";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import type { NotificationType } from "../../types";
+import type { NotificationType } from "../../../../types";
 import emailjs from "@emailjs/browser";
 import { useEffect, useRef, useState } from "react";
-import { NOTIFICATION_MS_TIME } from "@/utils/globals";
-import Notification from "@/src/components/Notification";
+import { useTranslations } from "next-intl";
+import { Input, TextArea } from "@/src/components/form";
+import { Notification } from "@/src/components/ui";
+import { NOTIFICATION_MS_TIME } from "@/utils/constants";
 
 type ContactFormInput = {
   name: string;
@@ -15,11 +15,13 @@ type ContactFormInput = {
 };
 
 const ContactForm = () => {
+  const t = useTranslations("Contact");
+  const tNotif = useTranslations("Notification");
   const formRef = useRef<HTMLFormElement>(null);
   const [notification, setNotification] = useState<NotificationType>({
     isShown: false,
   });
-  const [btnState, setBtnState] = useState("Send");
+  const [btnState, setBtnState] = useState(t("Send"));
 
   const {
     register,
@@ -31,7 +33,7 @@ const ContactForm = () => {
   const onSubmit: SubmitHandler<ContactFormInput> = async () => {
     if (!formRef.current) return;
     try {
-      setBtnState("Sending...");
+      setBtnState(t("Sending"));
       const res = await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE as string,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE as string,
@@ -40,7 +42,7 @@ const ContactForm = () => {
       );
       if (res.status === 200) {
         setNotification({
-          message: "🎉 Message sent successfully",
+          message: tNotif("Sent"),
           isShown: true,
           isSuccessful: true,
         });
@@ -48,12 +50,12 @@ const ContactForm = () => {
       }
     } catch (err) {
       setNotification({
-        message: `✖️ Something went wrong! Please try again in a moment.`,
+        message: tNotif("Error"),
         isShown: true,
         isSuccessful: false,
       });
     }
-    setBtnState("Send");
+    setBtnState(t("Send"));
   };
 
   useEffect(() => {
@@ -74,7 +76,7 @@ const ContactForm = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <Input
-        labelname="Name"
+        label={t("NameInput")}
         register={register}
         error={errors.name}
         validation={{ required: true }}
@@ -84,7 +86,7 @@ const ContactForm = () => {
         required
       />
       <Input
-        labelname="E-mail"
+        label="E-mail"
         name="email"
         register={register}
         error={errors.email}
@@ -100,7 +102,7 @@ const ContactForm = () => {
         register={register}
         error={errors.message}
         validation={{ required: true }}
-        labelname="Message"
+        label={t("MessageInput")}
         name="message"
         id="message"
         required

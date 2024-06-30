@@ -1,18 +1,20 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
-import {
-  type UseFormRegister,
-  type RegisterOptions,
-  type Path,
-  type FieldValues,
-  type FieldError,
+import type {
+  UseFormRegister,
+  RegisterOptions,
+  Path,
+  FieldValues,
+  FieldError,
 } from "react-hook-form";
+import RequiredAsterisk from "./RequiredAsterisk";
 
 export interface InputProps<T extends FieldValues>
   extends React.InputHTMLAttributes<HTMLInputElement> {
   name: Path<T>;
-  labelname?: string;
+  label?: string;
   register: UseFormRegister<T>;
   className?: string;
   error?: FieldError;
@@ -25,15 +27,13 @@ const Input = <T extends FieldValues>({
   register,
   className = "",
   error,
-  labelname,
+  label,
   validation,
   required,
   ...props
 }: InputProps<T>) => {
-  const errorClassses = error ? "border-purple-primary" : "border-gray-600";
-  const requiredAsterisk = required ? (
-    <span className="font-semibold text-purple-primary">*</span>
-  ) : null;
+  const t = useTranslations("ValidationMessages");
+  const errorClassses = error ? "border-error" : "border-gray-600";
 
   const WITHIN = "top-4 -z-20 px-4";
   const FLOAT = "px-2 -top-1 z-20 scale-90";
@@ -46,7 +46,7 @@ const Input = <T extends FieldValues>({
         htmlFor={name}
         className={`${labelClasses} absolute select-none text-xs font-bold uppercase tracking-wide text-gray-500 transition-all duration-300`}
       >
-        {labelname} {requiredAsterisk}
+        {label} {required ? <RequiredAsterisk /> : null}
       </label>
       <input
         {...register(name, validation)}
@@ -64,9 +64,9 @@ const Input = <T extends FieldValues>({
         {...props}
       />
       {error ? (
-        <span role={"alert"} className="text-sm text-purple-primary md:text-base">
-          {error?.type == "required" ? "Required" : null}
-          {error?.type == "pattern" ? "Input valid e-mail" : null}
+        <span role={"alert"} className="text-sm text-error md:text-base">
+          {error?.type === "required" ? t("Required") : null}
+          {error?.type === "pattern" ? t("E-mail") : null}
         </span>
       ) : null}
     </div>

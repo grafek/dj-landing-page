@@ -5,21 +5,36 @@
     "Contact": "KONTAKT"
   },
   "Home": {
-    "Text": "Poznaj różne oblicza haus'u na Twoim następnym wydarzeniu!",
+    "Text": "Poznaj różne oblicza hausu na Twoim następnym wydarzeniu!",
     "CTA1": "Booking",
     "CTA2": "O Mnie"
   },
   "About": {
     "P1": "Cześć! Jestem",
     "P2": "pasjonatem muzyki z miłością do prawie wszystkich gatunków. Muzyka house odcisnęła duże piętno na mojej duszy od samego początku, choć lubię też zagrać szybko (trance, techno, hard groove).",
+    "P2Link": "Posłuchaj moich ostatnich setów!",
     "His": "W ciągu ostatnich dwóch lat moja pasja podróż z DJką była bardzo ekscytująca oraz obfita.",
     "HisPresentation": "Podczas tego czasu.. ",
     "HisItem1": "zagrałem pierwszego seta na ",
     "HisItem2": "rozpocząłem współpracę z raperem",
     "HisItem2Part2": ", co obejmuje granie bitów i rozgrzewanie publiczności przed jego koncertami.",
-    "TryMe": "Try me!"
+    "TryMe": "Try me!",
+    "HisItem3": "dołączyłem do rapowego kolektywu ",
+    "HisItem3Part2": ", również gram bity i warmup przed koncertami"
   },
   "Contact": {
-    "Heading": "Porozmawiajmy:)"
+    "Heading": "Porozmawiajmy..",
+    "Send": "Wyślij",
+    "Sending": "Wysyłam...",
+    "NameInput": "Imię",
+    "MessageInput": "Wiadomość"
+  },
+  "Notification": {
+    "Sent": "🎉 Wiadomość wysłana!",
+    "Error": "✖️ Coś poszło nie tak... Spróbuj ponownie później!"
+  },
+  "ValidationMessages": {
+    "Required": "Wymagane",
+    "E-mail": "Nieprawidłowy adres e-mail"
   }
 }

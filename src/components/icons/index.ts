@@ -4,4 +4,3 @@ export { default as InstagramIcon } from "./InstagramIcon";
 export { default as SoundcloudIcon } from "./SoundcloudIcon";
 export { default as TikTokIcon } from "./TikTokIcon";
 export { default as MixcloudIcon } from "./MixcloudIcon";
-export { default as Logo } from "./Logo";
