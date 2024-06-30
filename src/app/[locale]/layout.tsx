@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import Footer from "./Footer";
@@ -23,6 +24,7 @@ export default async function LocaleLayout({
           </main>
           <Footer />
           <Analytics />
+          <SpeedInsights />
         </body>
       </NextIntlClientProvider>
     </html>
